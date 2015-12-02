@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gulp Starter Environment</title>
+</head>
+<body>
+
+<style>
+.svg-grey {
+  width: 600px;
+  height: 300px;
+  display: block;
+  background: url('http://watchingbackyardbirds.com/img/page-summebirds2013.jpg'), gray;
+  filter: url(#grayscale-filter);
+}
+</style>
+
+<h1>SVG Filter Grayscale</h1>
+
+<svg>
+  <filter id="grayscale-filter">
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+</svg>
+
+<div class="svg-grey"></div>
+
+</body>
+</html>
