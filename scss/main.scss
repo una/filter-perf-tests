@@ -1,0 +1,23 @@
+.svg-grey {
+  width: 600px;
+  height: 300px;
+  display: block;
+  background: url('http://watchingbackyardbirds.com/img/page-summebirds2013.jpg'), gray;
+  filter: url(#grayscale-filter);
+}
+
+.cssfilter-grey {
+  width: 600px;
+  height: 300px;
+  display: block;
+  background: url('http://watchingbackyardbirds.com/img/page-summebirds2013.jpg'), gray;
+  filter: grayscale(1);
+}
+
+.blendmode-grey {
+  width: 600px;
+  height: 300px;
+  display: block;
+  background: url('http://watchingbackyardbirds.com/img/page-summebirds2013.jpg'), gray;
+  background-blend-mode: luminosity;
+}
