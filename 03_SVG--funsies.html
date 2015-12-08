@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gulp Starter Environment</title>
+</head>
+<body>
+
+<style>
+.svg-grey {
+  width: 600px;
+  height: 300px;
+  display: block;
+  background: url('./img/bird.jpg');
+  filter: url(#grayscale);
+  -webkit-filter: url(#grayscale);
+}
+
+.bird-img {
+  filter: url(#grayscale);
+  -webkit-filter: url(#dusk);
+}
+</style>
+
+<h1>SVG Filter Grayscale</h1>
+
+<svg>
+  <filter id="grayscale">
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+
+  <filter id="dusk">
+    <feColorMatrix
+      type="matrix"
+      values="1.0 0   0   0   0
+              0   0.2 0   0   0
+              0   0   0.2 0   0
+              0   0   0   1.0 0 "/>
+  </filter>
+</svg>
+
+<div class="svg-grey"></div>
+
+<img src="img/bird.jpg" alt="" class="bird-img">
+
+</body>
+</html>
