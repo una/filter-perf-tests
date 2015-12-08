@@ -8,45 +8,43 @@
 
 <h1>Canvas Filter Grayscale</h1>
 
-<canvas class="canvas-grey" width="600" height="300"></canvas>
-
-<a href="http://www.ajaxblender.com/howto-convert-image-to-grayscale-using-javascript.html">source</a>
-<a href="http://www.html5canvastutorials.com/advanced/html5-canvas-grayscale-image-colors-tutorial/">source 2</a>
+<canvas id="canvas-grey" width="600" height="300"></canvas>
 
 <script>
-  function drawImage(imageObj) {
-    var canvas = document.querySelector('.canvas-grey');
-    var context = canvas.getContext('2d');
-    var x = 0;
-    var y = 0;
+      function drawImage(imageObj) {
+        var canvas = document.getElementById('canvas-grey');
+        var context = canvas.getContext('2d');
+        var x = 0;
+        var y = 0;
 
-    context.drawImage(imageObj, x, y);
+        context.drawImage(imageObj, x, y);
 
-    var imageData = context.getImageData(x, y, imageObj.width, imageObj.height);
-    var data = imageData.data;
+        var imageData = context.getImageData(x, y, imageObj.width, imageObj.height);
+        var data = imageData.data;
 
-    for(var i = 0; i < data.length; i += 4) {
-      var brightness = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
-      // red
-      data[i] = brightness;
-      // green
-      data[i + 1] = brightness;
-      // blue
-      data[i + 2] = brightness;
-    }
+        for(var i = 0; i < data.length; i += 4) {
+          var brightness = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
+          // red
+          data[i] = brightness;
+          // green
+          data[i + 1] = brightness;
+          // blue
+          data[i + 2] = brightness;
+        }
 
-    // overwrite original image
-    context.putImageData(imageData, x, y);
-  }
+        // overwrite original image
+        context.putImageData(imageData, x, y);
+      }
 
-  var imageObj = new Image();
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        drawImage(this);
+      };
 
-  imageObj.onload = function() {
-    drawImage(this);
-  };
+      imageObj.src = './img/bird.jpg';
+    </script>
 
-  imageObj.src = './img/bird';
-</script>
+    <!-- <a href="http://www.html5canvastutorials.com/advanced/html5-canvas-grayscale-image-colors-tutorial/">source</a> -->
 
 </body>
 </html>
